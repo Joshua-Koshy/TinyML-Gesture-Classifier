@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "69b823fd-c065-40ff-9bb9-c5835555f3eb")
 	(paper "A4")
 	(title_block
@@ -16,7 +16,7 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "H"
-				(at 0 1.27 0)
+				(at 0 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -59,7 +59,7 @@
 				)
 			)
 			(symbol "MountingHole_1_1"
-				(pin power_in non_logic
+				(pin free non_logic
 					(at 0 0 180)
 					(length 3.81)
 					(name "Hole"
@@ -78,6 +78,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 	)
 	(symbol
@@ -343,6 +344,10 @@
 	(sheet
 		(at 38.1 25.4)
 		(size 196.85 20.955)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -371,7 +376,7 @@
 			)
 		)
 		(instances
-			(project "Lab7"
+			(project "ECE445L_Lab7"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(page "2")
 				)
@@ -381,6 +386,10 @@
 	(sheet
 		(at 169.545 102.87)
 		(size 35.56 16.51)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -409,7 +418,7 @@
 			)
 		)
 		(instances
-			(project "Lab7"
+			(project "ECE445L_Lab7"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(page "5")
 				)
@@ -419,6 +428,10 @@
 	(sheet
 		(at 186.055 63.5)
 		(size 40.005 19.685)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -447,7 +460,7 @@
 			)
 		)
 		(instances
-			(project "Lab7"
+			(project "ECE445L_Lab7"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(page "6")
 				)
@@ -457,6 +470,10 @@
 	(sheet
 		(at 104.775 74.295)
 		(size 45.72 21.59)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -485,7 +502,7 @@
 			)
 		)
 		(instances
-			(project "Lab7"
+			(project "ECE445L_Lab7"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(page "3")
 				)
@@ -495,6 +512,10 @@
 	(sheet
 		(at 39.37 70.485)
 		(size 45.72 25.4)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -523,7 +544,7 @@
 			)
 		)
 		(instances
-			(project "Lab7"
+			(project "ECE445L_Lab7"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(page "4")
 				)
@@ -535,4 +556,5 @@
 			(page "1")
 		)
 	)
+	(embedded_fonts no)
 )

@@ -1,14 +1,18 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "de81b7c1-6356-42e2-b54c-7efa36ee3aaa")
 	(paper "A4")
 	(lib_symbols
 		(symbol "ECE445L:SW_Push"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 1.016) hide)
+				(offset 1.016)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -90,10 +94,9 @@
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 2.54 1.27) (xy -2.54 1.27)
-					)
+				(circle
+					(center 2.032 0)
+					(radius 0.508)
 					(stroke
 						(width 0)
 						(type default)
@@ -102,9 +105,10 @@
 						(type none)
 					)
 				)
-				(circle
-					(center 2.032 0)
-					(radius 0.508)
+				(polyline
+					(pts
+						(xy 2.54 1.27) (xy -2.54 1.27)
+					)
 					(stroke
 						(width 0)
 						(type default)
@@ -150,12 +154,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:GND"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -246,7 +255,30 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
+	)
+	(text_box "Pushbuttons"
+		(exclude_from_sim no)
+		(at 34.925 29.845 0)
+		(size 21.59 7.62)
+		(margins 1.5 1.5 1.5 1.5)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(effects
+			(font
+				(size 2 2)
+				(thickness 0.4)
+				(bold yes)
+			)
+			(justify left top)
+		)
+		(uuid "bf2f66b1-ddbc-43a8-8b5f-604695a6f98d")
 	)
 	(junction
 		(at 50.165 56.515)
@@ -316,30 +348,8 @@
 		)
 		(uuid "f3cd1be7-b38a-4350-9ecd-f0878f8209f1")
 	)
-	(text_box "Pushbuttons"
-		(exclude_from_sim no)
-		(at 34.925 29.845 0)
-		(size 21.59 7.62)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(effects
-			(font
-				(size 2 2)
-				(thickness 0.4)
-				(bold yes)
-			)
-			(justify left top)
-		)
-		(uuid "bf2f66b1-ddbc-43a8-8b5f-604695a6f98d")
-	)
 	(label "SW_RIGHT"
 		(at 71.755 46.355 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -351,7 +361,6 @@
 	)
 	(label "SW_MODE"
 		(at 83.185 46.355 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -363,7 +372,6 @@
 	)
 	(label "SW_DOWN"
 		(at 50.165 46.355 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -375,7 +383,6 @@
 	)
 	(label "SW_LEFT"
 		(at 61.595 46.355 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -387,7 +394,6 @@
 	)
 	(label "SW_UP"
 		(at 40.005 46.355 0)
-		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)

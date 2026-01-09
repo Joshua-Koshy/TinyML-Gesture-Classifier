@@ -7178,7 +7178,7 @@
 			)
 		)
 		(symbol "MountingHole_1_1"
-			(pin power_in non_logic
+			(pin free non_logic
 				(at 0 0 180)
 				(length 3.81)
 				(name "Hole"

@@ -1,12 +1,14 @@
 (kicad_sch
-	(version 20231120)
+	(version 20250114)
 	(generator "eeschema")
-	(generator_version "8.0")
+	(generator_version "9.0")
 	(uuid "6ae75f33-8ca1-464e-b5e7-f90dd0f418b3")
 	(paper "A4")
 	(lib_symbols
 		(symbol "ECE445L:C"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0.254)
 			)
@@ -79,7 +81,7 @@
 			(symbol "C_0_1"
 				(polyline
 					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
+						(xy -2.032 0.762) (xy 2.032 0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -91,7 +93,7 @@
 				)
 				(polyline
 					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
 					)
 					(stroke
 						(width 0.508)
@@ -140,11 +142,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "ECE445L:C_Polarized"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -249,9 +256,9 @@
 					)
 				)
 				(arc
-					(start 2.032 -1.27)
+					(start -2.032 -1.27)
 					(mid 0 -0.5572)
-					(end -2.032 -1.27)
+					(end 2.032 -1.27)
 					(stroke
 						(width 0.508)
 						(type default)
@@ -299,6 +306,7 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "ECE445L:ESP8266-1"
 			(exclude_from_sim no)
@@ -320,7 +328,7 @@
 					)
 				)
 			)
-			(property "Footprint" "ECE445L:PinHeader_2x04_P2.54mm_Vertical"
+			(property "Footprint" "ECE445L:ESP8266_FemaleConnector"
 				(at 0 -7.62 0)
 				(effects
 					(font
@@ -432,34 +440,16 @@
 					)
 				)
 				(pin passive line
-					(at 12.065 -5.715 180)
+					(at 12.065 5.715 180)
 					(length 2.54)
-					(name "TxD"
+					(name "Vcc"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 12.065 -1.905 180)
-					(length 2.54)
-					(name "Ch_PD"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
+					(number "8"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -486,16 +476,34 @@
 					)
 				)
 				(pin passive line
-					(at 12.065 5.715 180)
+					(at 12.065 -1.905 180)
 					(length 2.54)
-					(name "Vcc"
+					(name "Ch_PD"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "8"
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 12.065 -5.715 180)
+					(length 2.54)
+					(name "TxD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -504,11 +512,16 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "ECE445L:R_0.125W"
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0.254) hide)
+				(offset 0.254)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -578,7 +591,7 @@
 			(symbol "R_0.125W_1_1"
 				(polyline
 					(pts
-						(xy 0 0) (xy 1.016 -0.381) (xy 0 -0.762) (xy -1.016 -1.143) (xy 0 -1.524)
+						(xy 0 1.524) (xy 1.016 1.143) (xy 0 0.762) (xy -1.016 0.381) (xy 0 0)
 					)
 					(stroke
 						(width 0)
@@ -590,7 +603,7 @@
 				)
 				(polyline
 					(pts
-						(xy 0 1.524) (xy 1.016 1.143) (xy 0 0.762) (xy -1.016 0.381) (xy 0 0)
+						(xy 0 0) (xy 1.016 -0.381) (xy 0 -0.762) (xy -1.016 -1.143) (xy 0 -1.524)
 					)
 					(stroke
 						(width 0)
@@ -637,12 +650,17 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 		(symbol "power:GND"
 			(power)
-			(pin_numbers hide)
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
-				(offset 0) hide)
+				(offset 0)
+				(hide yes)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
@@ -733,12 +751,14 @@
 					)
 				)
 			)
+			(embedded_fonts no)
 		)
 	)
 	(text_box "ESP8266 requires a separate 100mA at 3V3."
 		(exclude_from_sim no)
 		(at 97.155 42.545 0)
 		(size 22.86 3.81)
+		(margins 0.75 0.75 0.75 0.75)
 		(stroke
 			(width 0)
 			(type default)
@@ -759,6 +779,7 @@
 		(exclude_from_sim no)
 		(at 48.895 36.195 0)
 		(size 13.97 7.62)
+		(margins 1.5 1.5 1.5 1.5)
 		(stroke
 			(width 0)
 			(type default)
@@ -938,7 +959,7 @@
 				)
 			)
 		)
-		(property "Footprint" "ECE445L:PinHeader_2x04_P2.54mm_Vertical"
+		(property "Footprint" "ECE445L:ESP8266_FemaleConnector"
 			(at 73.025 66.675 0)
 			(effects
 				(font
