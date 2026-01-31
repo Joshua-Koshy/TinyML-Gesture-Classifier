@@ -4191,6 +4191,18 @@
 		(uuid "15ddb681-7c9a-44dd-92cd-a2415cf5d0be")
 	)
 	(junction
+		(at 85.09 184.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "161133ce-dd62-424a-975f-7679a17ae545")
+	)
+	(junction
+		(at 72.39 181.61)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "33aa8929-7baf-4f23-bc6a-4b5e2e351dc2")
+	)
+	(junction
 		(at 97.79 26.67)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4286,6 +4298,12 @@
 		(color 0 0 0 0)
 		(uuid "f65880e2-7b81-46b1-8da6-c9229c731fa8")
 	)
+	(junction
+		(at 85.09 160.02)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fccc7475-ae6a-46e7-a081-2676b83a3f51")
+	)
 	(wire
 		(pts
 			(xy 165.1 53.975) (xy 156.21 53.975)
@@ -4355,6 +4373,16 @@
 			(type default)
 		)
 		(uuid "15704ab2-057e-41f2-9e29-d312ed8a5320")
+	)
+	(wire
+		(pts
+			(xy 85.09 184.15) (xy 85.09 190.5)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1a3e3ade-a5c7-44e8-ab33-95032451aaa4")
 	)
 	(wire
 		(pts
@@ -4448,6 +4476,26 @@
 	)
 	(wire
 		(pts
+			(xy 71.12 181.61) (xy 72.39 181.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "285f7d83-f5ac-410d-bc20-9e5833fec48e")
+	)
+	(wire
+		(pts
+			(xy 71.12 184.15) (xy 71.12 181.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "28794d25-5639-4456-8d23-b5486f3fe1e2")
+	)
+	(wire
+		(pts
 			(xy 164.465 25.4) (xy 164.465 29.21)
 		)
 		(stroke
@@ -4498,6 +4546,16 @@
 	)
 	(wire
 		(pts
+			(xy 80.01 184.15) (xy 72.39 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2fe4168f-89f6-46da-92e3-558f7a96a84c")
+	)
+	(wire
+		(pts
 			(xy 58.42 40.64) (xy 62.23 40.64)
 		)
 		(stroke
@@ -4525,6 +4583,16 @@
 			(type default)
 		)
 		(uuid "399a912a-8811-4f6e-bbf1-8e475079c702")
+	)
+	(wire
+		(pts
+			(xy 97.79 151.13) (xy 101.6 151.13)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f6ab592-6fb6-4e54-b6e4-46fb6a6d00d0")
 	)
 	(wire
 		(pts
@@ -4618,6 +4686,16 @@
 	)
 	(wire
 		(pts
+			(xy 97.79 167.64) (xy 97.79 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "581f608c-2d9c-410b-b6ef-602d845fc847")
+	)
+	(wire
+		(pts
 			(xy 100.33 93.98) (xy 100.33 41.91)
 		)
 		(stroke
@@ -4635,6 +4713,26 @@
 			(type default)
 		)
 		(uuid "5c88032a-48b8-4139-8fe7-d6a64c8fb5a6")
+	)
+	(wire
+		(pts
+			(xy 99.06 184.15) (xy 99.06 191.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d3f500e-6ccc-480b-99cc-80d9c154c3fa")
+	)
+	(wire
+		(pts
+			(xy 85.09 160.02) (xy 86.36 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5d98c2ce-f0d2-4269-bd48-d4e008ee7de4")
 	)
 	(wire
 		(pts
@@ -4838,6 +4936,16 @@
 	)
 	(wire
 		(pts
+			(xy 97.79 151.13) (xy 97.79 154.94)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "87236d42-f745-4bff-b9d5-6af5b85164d3")
+	)
+	(wire
+		(pts
 			(xy 234.95 125.73) (xy 232.41 125.73)
 		)
 		(stroke
@@ -4858,6 +4966,16 @@
 	)
 	(wire
 		(pts
+			(xy 74.93 160.02) (xy 74.93 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "92275239-dd46-41e0-856b-c03ffaa8bb3e")
+	)
+	(wire
+		(pts
 			(xy 143.51 62.23) (xy 144.78 62.23)
 		)
 		(stroke
@@ -4865,6 +4983,16 @@
 			(type default)
 		)
 		(uuid "9363855c-cdd0-4b6e-ae5e-2c222e1aaf54")
+	)
+	(wire
+		(pts
+			(xy 57.15 184.15) (xy 59.69 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "958f433b-00e1-46ae-b6d2-6685be3723fa")
 	)
 	(wire
 		(pts
@@ -5038,6 +5166,16 @@
 	)
 	(wire
 		(pts
+			(xy 57.15 186.69) (xy 57.15 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd636cd9-534e-498f-82e5-b78b8fe2650c")
+	)
+	(wire
+		(pts
 			(xy 58.42 53.34) (xy 62.23 53.34)
 		)
 		(stroke
@@ -5045,6 +5183,16 @@
 			(type default)
 		)
 		(uuid "cdac96f6-3f0f-4135-9758-b46a1f0f1399")
+	)
+	(wire
+		(pts
+			(xy 82.55 160.02) (xy 85.09 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0cb6287-be7d-40e4-ad26-a1d23cac5bcb")
 	)
 	(wire
 		(pts
@@ -5145,6 +5293,16 @@
 			(type default)
 		)
 		(uuid "e1a8486c-8f90-44fa-be46-a8f067cfb950")
+	)
+	(wire
+		(pts
+			(xy 67.31 184.15) (xy 71.12 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1b1dbd2-bf11-4eb6-9e50-41363e3aa4bc")
 	)
 	(wire
 		(pts
@@ -5298,6 +5456,16 @@
 	)
 	(wire
 		(pts
+			(xy 72.39 184.15) (xy 72.39 181.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "facc9a0c-f496-4edc-b99e-30a3a721ffc2")
+	)
+	(wire
+		(pts
 			(xy 156.21 50.8) (xy 161.29 50.8)
 		)
 		(stroke
@@ -5305,6 +5473,16 @@
 			(type default)
 		)
 		(uuid "fdd6eb96-eb36-4173-a8be-011d34e03605")
+	)
+	(wire
+		(pts
+			(xy 85.09 184.15) (xy 88.9 184.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ff824ed9-f042-47d5-be3b-df70d84b1adc")
 	)
 	(wire
 		(pts
@@ -5338,7 +5516,7 @@
 			)
 		)
 	)
-	(global_label "PB4"
+	(global_label "Pc7"
 		(shape input)
 		(at 118.11 127 180)
 		(fields_autoplaced yes)
@@ -5888,6 +6066,28 @@
 			)
 		)
 	)
+	(global_label "Pc7"
+		(shape input)
+		(at 86.36 160.02 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "4302b071-23e7-4e8c-b6bb-1cb4c97313a1")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 92.9133 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "PA13"
 		(shape input)
 		(at 20.32 72.39 180)
@@ -6174,6 +6374,28 @@
 			)
 		)
 	)
+	(global_label "PB4"
+		(shape input)
+		(at 101.6 151.13 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "97c57281-284e-499d-9be9-1408b79c191d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 108.3347 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "PA27"
 		(shape input)
 		(at 20.32 45.72 180)
@@ -6209,6 +6431,50 @@
 		(uuid "98aa16c2-276f-4d4f-bd1b-61eef6a04512")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 12.5572 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PB4"
+		(shape input)
+		(at 85.09 190.5 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a832bfc1-a5ad-4d63-840a-f8329c6d8c20")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 85.09 197.2347 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "PB4"
+		(shape input)
+		(at 57.15 191.77 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a8c94b78-5ef7-4831-905a-a1908b202473")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 57.15 198.5047 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -6637,6 +6903,140 @@
 		)
 	)
 	(symbol
+		(lib_id "ECE445L:R_0.125W")
+		(at 97.79 157.48 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "00531ef6-f5d5-4bca-9db0-e3bd8c1a6058")
+		(property "Reference" "R21"
+			(at 100.33 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "470"
+			(at 100.33 158.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ECE445L:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal"
+			(at 97.79 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://users.ece.utexas.edu/~valvano/mspm0/CarbonFilmresistors.pdf"
+			(at 97.79 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 97.79 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8ab801ce-2960-426b-a871-466dc199c542")
+		)
+		(pin "2"
+			(uuid "b950d395-d44a-4a19-a185-ca5a2e491ba0")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "R21")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 97.79 170.18 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "04d63775-df40-47db-a0ec-dd39b38f977d")
+		(property "Reference" "#PWR014"
+			(at 97.79 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 97.79 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 97.79 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 97.79 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "25c0c80b-384e-40e3-b42a-29ae0024defb")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "ECE445L:MountingHole")
 		(at 280.67 30.48 0)
 		(unit 1)
@@ -6832,6 +7232,75 @@
 			(project "ECE319KStarter"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ECE445L:LED")
+		(at 99.06 163.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "118a4e45-975f-4cab-9f53-7f903ef13115")
+		(property "Reference" "D5"
+			(at 101.6 164.1474 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "LED"
+			(at 101.6 166.6874 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ECE445L:LED_D5.0mm"
+			(at 99.06 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://users.ece.utexas.edu/~valvano/mspm0/HLMP-4700.pdf"
+			(at 99.06 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 99.06 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a3f14875-425f-4078-b4de-5379d3c29ac7")
+		)
+		(pin "2"
+			(uuid "d9369051-d508-4bc6-8dee-34b4deeab077")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -7310,6 +7779,139 @@
 			(project "ECE319KStarter"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(reference "SW2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ECE445L:R_0.125W")
+		(at 85.09 162.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3262667a-e8cd-42dc-aa0b-edcbe897be39")
+		(property "Reference" "R20"
+			(at 87.63 161.29 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "470"
+			(at 87.63 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ECE445L:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal"
+			(at 85.09 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://users.ece.utexas.edu/~valvano/mspm0/CarbonFilmresistors.pdf"
+			(at 85.09 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 85.09 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "10011407-1b6f-46e3-a07d-b5bf7c840ee1")
+		)
+		(pin "2"
+			(uuid "8db533a2-e80f-4b78-8b50-93a689a60579")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "R20")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 74.93 152.4 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "331798eb-940d-4aa3-9a1e-2d809a189ca1")
+		(property "Reference" "#PWR012"
+			(at 74.93 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 71.12 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 74.93 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 74.93 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 74.93 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "88e0594f-774d-46f0-aeac-0810c72f1e56")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "#PWR012")
 					(unit 1)
 				)
 			)
@@ -8129,6 +8731,71 @@
 			(project "ECE319KStarter"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(reference "#PWR01")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 85.09 165.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "571dd4ea-a4ca-4cbb-931d-2608dc78a05e")
+		(property "Reference" "#PWR013"
+			(at 85.09 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 85.09 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 85.09 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d38310ff-c15e-4f4d-9252-e2a650e31a1f")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "#PWR013")
 					(unit 1)
 				)
 			)
@@ -9439,17 +10106,35 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 41.91 135.89 0)
+		(lib_id "ECE445L:R_0.125W")
+		(at 57.15 189.23 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "a510bfc1-417d-4678-aab5-e352016d82af")
-		(property "Reference" "#PWR0102"
-			(at 41.91 142.24 0)
+		(uuid "a4de16c0-3d18-4159-ab37-f17ad3e126b8")
+		(property "Reference" "R18"
+			(at 59.69 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "470"
+			(at 59.69 190.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "ECE445L:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal"
+			(at 57.15 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9457,25 +10142,8 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "GND"
-			(at 41.91 140.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 41.91 135.89 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 41.91 135.89 0)
+		(property "Datasheet" "https://users.ece.utexas.edu/~valvano/mspm0/CarbonFilmresistors.pdf"
+			(at 57.15 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9484,7 +10152,75 @@
 			)
 		)
 		(property "Description" ""
-			(at 41.91 135.89 0)
+			(at 57.15 189.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e4b9bedb-998f-4c53-903c-83f7deaf4ac1")
+		)
+		(pin "2"
+			(uuid "365c36e7-4edb-4074-9fac-0ba9ac7d9832")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "R18")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 40.64 135.89 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a510bfc1-417d-4678-aab5-e352016d82af")
+		(property "Reference" "#PWR0102"
+			(at 40.64 142.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 40.64 140.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 40.64 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 40.64 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 40.64 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9906,6 +10642,140 @@
 		)
 	)
 	(symbol
+		(lib_id "ECE445L:SW_Push")
+		(at 80.01 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "baf09558-bd6c-48a9-ae55-b659d8ba80a2")
+		(property "Reference" "SW6"
+			(at 80.01 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "RGHT"
+			(at 80.01 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ECE445L:SW_PUSH_6mm"
+			(at 80.01 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 80.01 154.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 80.01 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "731d5493-d961-4d82-9b28-eb0716ce7e8b")
+		)
+		(pin "2"
+			(uuid "1e395717-45d2-4f8d-8f38-d76fa13bce2d")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "SW6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ECE445L:SW_Push")
+		(at 93.98 184.15 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "bb933c4f-066f-48df-91f6-02b47971256e")
+		(property "Reference" "SW5"
+			(at 93.98 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "RGHT"
+			(at 93.98 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ECE445L:SW_PUSH_6mm"
+			(at 93.98 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 93.98 179.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 93.98 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "691c9f08-5021-4136-8bf5-dddc99a172d4")
+		)
+		(pin "2"
+			(uuid "a5d3d13f-d00b-491f-87b3-bf68fe442b8b")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "SW5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 168.91 72.39 0)
 		(unit 1)
@@ -10034,6 +10904,73 @@
 			(project "ECE319KStarter"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ECE445L:LED")
+		(at 63.5 182.88 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cf7925b8-2082-499d-a23c-da654476c18c")
+		(property "Reference" "D4"
+			(at 65.0875 176.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LED"
+			(at 65.0875 179.07 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ECE445L:LED_D5.0mm"
+			(at 60.96 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://users.ece.utexas.edu/~valvano/mspm0/HLMP-4700.pdf"
+			(at 60.96 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 63.5 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bf80f411-c45e-43cb-8368-946b90d2308c")
+		)
+		(pin "2"
+			(uuid "616459c4-cd86-4d1c-a5da-c9caa4b4cb80")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -10173,6 +11110,71 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 72.39 181.61 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d56c5dc3-4b6a-4b66-87a2-f228e1b35f63")
+		(property "Reference" "#PWR010"
+			(at 72.39 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 72.39 186.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 72.39 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 72.39 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 72.39 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ff207268-3247-41c0-bf50-10bcdae570a3")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "ECE445L:C")
 		(at 208.28 137.16 90)
 		(unit 1)
@@ -10301,6 +11303,137 @@
 			(project "ECE319KStarter"
 				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
 					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "ECE445L:R_0.125W")
+		(at 82.55 184.15 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "df7a4436-0447-4eeb-9d60-3bf51fa7a2bc")
+		(property "Reference" "R19"
+			(at 82.55 177.8 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "470"
+			(at 82.55 180.34 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "ECE445L:R_Axial_DIN0204_L3.6mm_D1.6mm_P7.62mm_Horizontal"
+			(at 82.55 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://users.ece.utexas.edu/~valvano/mspm0/CarbonFilmresistors.pdf"
+			(at 82.55 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 82.55 184.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "3b0c6d03-da64-4ce0-a608-45cf2ef5d092")
+		)
+		(pin "2"
+			(uuid "156fa3fc-7d72-435d-b18e-d32481496924")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "R19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 99.06 191.77 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e152a6aa-b36d-4f07-a43d-81b69a005e17")
+		(property "Reference" "#PWR011"
+			(at 99.06 187.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 102.87 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 99.06 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 99.06 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 99.06 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c6db927d-bd0b-4bfa-955c-ab509ea8d192")
+		)
+		(instances
+			(project "ECE319K_Starter"
+				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb"
+					(reference "#PWR011")
 					(unit 1)
 				)
 			)
