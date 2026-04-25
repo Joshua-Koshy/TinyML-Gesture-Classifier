@@ -3,7 +3,7 @@
 I built this project as a real-time embedded gesture-recognition system with a custom PCB using TM4C123 microcontrollers, LSM6DSOX IMUs, ESP8266 wireless communication, and fixed-point TinyML inference.
 
 <p align="center">
-  <img src="PCB_and_Controllers.png" width="600"/>
+  <img src="PCB_and_Controllers2.png" width="600"/>
 </p>
 
 <p align="center">
