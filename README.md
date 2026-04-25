@@ -1,454 +1,276 @@
 # TinyML Embedded Gesture Classifier
 
-A real-time embedded gesture-recognition system built around TM4C123 microcontrollers, LSM6DSOX inertial sensors, ESP8266 wireless links, and fixed-point TinyML inference. The project captures motion from handheld controller modules, segments raw IMU data into gesture windows, extracts engineered motion features, runs lightweight gesture classifiers on-device, and streams classification results to a central hub and host display.
+I built this project as a real-time embedded gesture-recognition system with a custom PCB using TM4C123 microcontrollers, LSM6DSOX IMUs, ESP8266 wireless communication, and fixed-point TinyML inference.
 
-This repository is structured as a complete embedded system rather than a standalone ML notebook. It includes firmware for multiple TM4C-based modules, wireless communication support, sensor-processing code, fixed-point neural-network inference, timing/synchronization logic, host-side visualization, and KiCad hardware design files.
+<p align="center">
+  <img src="PCB_and_Controllers.png" width="600"/>
+</p>
 
-> Large `.mp4` demo/media files are intentionally excluded from version control. The firmware and classifier logic do not depend on storing those video files in Git.
+<p align="center">
+  <em>Custom PCB and handheld controller modules used in the embedded gesture classification system</em>
+</p>
+
+
+
+The system captures motion from handheld controller modules, segments raw IMU data into meaningful gesture windows, extracts engineered features, runs lightweight classifiers directly on-device, and streams results to a central hub and host display. The full pipeline runs on embedded hardware rather than relying on a PC for inference.
 
 ---
 
-## Project Overview
+## Overview
 
-The system is designed to classify human arm and body gestures using constrained embedded hardware. Each controller samples a 6-axis LSM6DSOX IMU, filters and calibrates the sensor readings, detects active motion segments, computes a compact feature vector, and classifies the movement using a mixture of rule-based scoring and fixed-point TinyML models.
+My goal with this project was to design a complete embedded system capable of classifying human motion under tight hardware constraints.
 
-A central TM4C-based hub coordinates system timing, receives controller outputs through ESP8266 communication, and forwards gesture events to a PC over UART. The host-side Python application can display real-time score/state feedback, but the core gesture recognition pipeline runs on the embedded controller firmware.
+Each controller:
+
+* samples a 6-axis IMU in real time
+* performs filtering and calibration
+* segments motion into gesture windows
+* extracts a compact feature vector
+* classifies gestures using rule-based logic and TinyML models
+
+A central hub coordinates timing, aggregates controller outputs over ESP8266, and forwards results to a PC over UART for visualization.
 
 ---
 
 ## Key Features
 
-- **Real-time IMU gesture classification** on TM4C123 microcontrollers
-- **LSM6DSOX accelerometer/gyroscope integration** over I2C
-- **Deterministic timing** using a free-running hardware timer
-- **Five-second calibration stage** for sensor bias and baseline estimation
-- **Motion segmentation engine** with tunable per-gesture thresholds
-- **Feature extraction from raw motion segments** using 32 engineered gesture metrics
-- **Fixed-point TinyML inference** with small neural networks compiled into C arrays
-- **Rule-based fallback scoring** for gestures that are easier to detect analytically
-- **ESP8266 wireless communication** between controller modules and the hub
-- **UART event protocol** for forwarding detections to external tools
-- **EEPROM-backed mode/song selection** so the selected routine persists across reset
-- **Multi-module architecture** with separate controller, hub/audio, and host display software
-- **KiCad hardware files** for embedded board design and supporting circuitry
+* Real-time gesture classification on TM4C123 microcontrollers
+* LSM6DSOX accelerometer/gyroscope integration over I2C
+* Deterministic scheduling using a free-running hardware timer
+* Fixed 5-second calibration stage for bias stabilization
+* Tunable motion segmentation engine
+* 32-feature embedded feature extraction pipeline
+* Fixed-point TinyML inference (no floating point at runtime)
+* Hybrid detection: neural networks + rule-based scoring
+* ESP8266 wireless communication between modules
+* UART protocol for structured output (`SEG` and `DETECT`)
+* EEPROM-backed configuration persistence
+* Multi-module embedded architecture (controllers + hub + host)
 
 ---
 
 ## System Architecture
 
 ```text
-+--------------------------+         ESP8266 wireless         +---------------------------+
-| Controller Module 1      |  ----------------------------->  |                           |
-| TM4C123 + LSM6DSOX IMU   |                                 |                           |
-|                          |                                 |                           |
-| - IMU sampling           |                                 |                           |
-| - calibration            |                                 | Central Hub / Brain       |
-| - filtering              |                                 | TM4C123 + ESP8266         |
-| - segmentation           |                                 |                           |
-| - feature extraction     |                                 | - start coordination      |
-| - TinyML inference       |                                 | - audio / timing control  |
-| - detection messages     |                                 | - UART bridge to PC       |
-+--------------------------+                                 |                           |
-                                                               |                           |
-+--------------------------+         ESP8266 wireless         |                           |
-| Controller Module 2      |  ----------------------------->  |                           |
-| TM4C123 + LSM6DSOX IMU   |                                 +-------------+-------------+
-|                          |                                               |
-| Same embedded pipeline   |                                               | UART
-+--------------------------+                                               v
-                                                               +---------------------------+
-                                                               | Host Display / Logger     |
-                                                               | Python + serial interface |
-                                                               +---------------------------+
+Controller Modules (TM4C + IMU)
+    ↓
+Sensor processing + segmentation
+    ↓
+Feature extraction (32 features)
+    ↓
+TinyML / rule-based classification
+    ↓
+ESP8266 wireless messages
+    ↓
+Central Hub (TM4C)
+    ↓
+UART output
+    ↓
+Host PC (Python visualization/logging)
 ```
 
-The important part: gesture classification is not performed on the PC. The PC is mainly a visualization/logging endpoint. The controller firmware performs the sensor processing, feature extraction, and inference on embedded hardware.
+A key design decision I made was to keep all classification on the embedded controllers. The PC is only used for visualization and logging, not inference.
 
 ---
 
-## Repository Layout
+## Repository Structure
 
 ```text
-.
-├── hw/
-│   ├── ECE319K_Starter/
-│   ├── ECE445L_Lab6/
-│   ├── ECE445L_Lab7/
-│   ├── ECE445L_RSLK_V2/
-│   ├── ECE445L_Starter/
-│   └── Part Libraries/
-│
-├── sw/
-│   ├── sw_Player1_Controller/
-│   │   ├── inc/
-│   │   └── src/
-│   │       └── Lab1.c
-│   │
-│   ├── sw_Player2_Controller/
-│   │   └── sw/
-│   │       ├── inc/
-│   │       └── src/
-│   │           └── Lab1.c
-│   │
-│   ├── sw_Audio/
-│   │   └── sw/
-│   │       ├── inc/
-│   │       └── src_latest/
-│   │           └── Lab5.c
-│   │
-│   └── sw_Display/
-│       └── justdance.py
-│
-└── Resources/
-    └── component datasheets and references
+sw/
+  sw_Player1_Controller/   → Controller firmware
+  sw_Player2_Controller/   → Second controller firmware
+  sw_Audio/                → Central hub firmware
+  sw_Display/              → Python host interface
+
+hw/                        → KiCad hardware design files
+Resources/                 → Datasheets and references
 ```
 
-### Major software components
+### Main Entry Points
 
-| Path | Purpose |
-| --- | --- |
-| `sw/sw_Player1_Controller/src/Lab1.c` | Main firmware for one IMU controller module |
-| `sw/sw_Player2_Controller/sw/src/Lab1.c` | Main firmware for the second IMU controller module |
-| `sw/sw_Audio/sw/src_latest/Lab5.c` | Central hub firmware for coordination, UART/ESP communication, and audio/timing control |
-| `sw/sw_Display/justdance.py` | Python host UI/logger that reads serial output from the hub |
-| `hw/` | KiCad board files, schematics, footprints, and hardware support files |
-| `Resources/` | Datasheets and reference documents |
+* `sw_Player1_Controller/src/Lab1.c`
+* `sw_Player2_Controller/sw/src/Lab1.c`
+* `sw_Audio/sw/src_latest/Lab5.c`
 
 ---
 
-## Embedded Controller Pipeline
+## Embedded Gesture Pipeline
 
-Each controller runs the same core gesture-recognition pipeline:
+Each controller runs a full embedded ML pipeline:
 
 ```text
 IMU read
-   ↓
-axis remapping
-   ↓
-low-pass filtering
-   ↓
-stationary calibration / bias tracking
-   ↓
-active-motion segmentation
-   ↓
-segment feature extraction
-   ↓
-rule-based scoring or TinyML inference
-   ↓
-cumulative step scoring
-   ↓
-UART / ESP detection output
+→ axis remap
+→ filtering
+→ calibration
+→ segmentation
+→ feature extraction
+→ classification
+→ output
 ```
 
-### 1. IMU sampling
+### IMU Processing
 
-The controller firmware communicates with the LSM6DSOX IMU over I2C. The firmware configures the accelerometer and gyroscope, reads raw accelerometer/gyro registers, and remaps sensor axes into the project’s real-world coordinate convention.
-
-The firmware preserves this logical axis mapping:
+I read accelerometer and gyroscope data over I2C and remap axes into a consistent real-world coordinate system:
 
 ```text
-IRL X = sensor Y
-IRL Y = sensor Z
-IRL Z = sensor X
+IRL X = sensor Y  
+IRL Y = sensor Z  
+IRL Z = sensor X  
 ```
 
-### 2. Calibration
+---
 
-At startup, the controller performs a fixed calibration stage. The calibration window is designed to last exactly 5000 ms, using hardware-timer-based scheduling instead of delay loops that could drift with UART or I2C activity.
+### Calibration
 
-Calibration is used to establish stable baseline values and reduce false positives from gravity, IMU bias, and small idle movement.
+At startup, I run a strict 5000 ms calibration phase using timer-based scheduling. This avoids drift and ensures stable baseline values for bias and gravity compensation.
 
-### 3. Real-time scheduling
+---
 
-The controller uses Timer0A as a free-running hardware timer. This matters because the gesture timeline should not depend on how long debug printing, I2C transactions, or classification math happens to take.
+### Real-Time Scheduling
 
-The firmware advances sampling based on timestamps rather than simply waiting in a loop. This makes the runtime behavior much more deterministic on bare-metal embedded hardware.
+I use Timer0A as a free-running hardware timer and schedule all sampling relative to time instead of loop delays. This keeps behavior deterministic even with UART output or I2C latency.
 
-### 4. Motion segmentation
+---
 
-The segmentation engine detects when a meaningful gesture starts and ends. It uses energy thresholds, quiet-sample counts, minimum/maximum segment sizes, and cooldown timing.
+### Motion Segmentation
 
-Each gesture can override the default segmentation parameters through the move registry. This is important because a fast punch, slow arm sweep, spin-like motion, and small wrist gesture do not produce the same energy shape.
+I designed a segmentation engine that detects meaningful motion using:
 
-The move registry stores:
+* energy thresholds
+* quiet-window detection
+* min/max segment sizes
+* cooldown timing
 
-```text
-move enum
-human-readable move name
-score function pointer
-per-move segmentation tuning
-```
-
-This makes the system easier to extend: adding a gesture does not require rewriting the segmentation engine.
+Each gesture can override segmentation parameters, which makes the system flexible across very different motion types.
 
 ---
 
 ## Feature Extraction
 
-For each detected motion segment, the firmware computes a compact feature vector. The code includes 32 segment-level features that describe timing, acceleration, gyroscope activity, travel direction, peak timing, oscillation behavior, and energy distribution.
+For each segment, I compute 32 engineered features describing motion shape and intensity.
 
-Representative features include:
+Examples include:
 
-- segment duration
-- number of samples
-- net vertical rise
-- total vertical travel
-- ending height estimate
-- starting low-position estimate
-- cross-body horizontal movement
-- small dip magnitude
-- finish drop from peak
-- oscillation count
-- slope flip count
-- total absolute acceleration
-- total absolute gyro motion
-- vertical acceleration area
-- vertical gyro area
-- peak acceleration
-- normalized fractional versions of major features
-- spin-like motion fraction
-- energy per sample
+* duration and sample count
+* vertical displacement and total travel
+* cross-body movement
+* oscillation and slope changes
+* total acceleration and gyro energy
+* peak timing and normalized feature ratios
+* spin characteristics
+* energy per sample
 
-These engineered features are useful because the TM4C123 does not have the memory or compute budget for heavyweight ML pipelines. Instead of feeding long time-series windows into a large model, the firmware compresses each gesture segment into a small fixed-size feature vector.
+Instead of feeding raw time-series data into a large model, I compress each gesture into a compact feature vector to stay within embedded constraints.
 
 ---
 
 ## TinyML Inference
 
-Several gestures use embedded neural-network classifiers. The models are small, fixed-point networks compiled directly into C arrays.
+I implemented small neural networks directly in firmware using fixed-point math.
 
-The main pattern is:
+Typical structure:
 
 ```text
-16 input features → 3 hidden ReLU units → 1 output logit
+16 inputs → 3 hidden (ReLU) → 1 output
 ```
 
-The firmware stores model parameters as scaled integers:
+All weights, biases, and normalization parameters are stored as scaled integers. This avoids floating-point overhead and keeps inference fast and deterministic.
 
-```c
-#define MODEL_INPUTS 16
-#define MODEL_HIDDEN 3
-#define MODEL_SCALE 1000
-```
-
-The inference path uses integer arithmetic instead of runtime floating-point math. This is important for predictable performance on the TM4C123 and for avoiding unnecessary overhead in the real-time loop.
-
-Supported TinyML-style classifiers in the controller firmware include models for gestures such as:
-
-- arc motion
-- bent arm sway
-- right arm wave
-- right arm throw
-- tall scoop
-- flex throw hands
-- right arm flex
-
-Some other gestures are detected using rule-based scoring when the motion has a simpler or more deterministic feature signature.
+Some gestures use ML models, while others use rule-based scoring depending on how well they can be defined analytically.
 
 ---
 
-## Detection Output Protocol
+## Output Protocol
 
-The controller firmware emits machine-readable UART messages so external tools can parse results reliably.
+The system outputs structured UART messages:
 
-### Segment feature dump
+### Feature Data
 
 ```text
-SEG,<MOVE>,<32 comma-separated feature values>
+SEG,<MOVE>,<32 values>
 ```
 
-This is useful for collecting training data, debugging feature quality, and comparing good/bad gesture examples.
-
-### Final detection output
+### Final Detection
 
 ```text
 DETECT,<MOVE>,<score>
 ```
 
-This is the main classification output. The score is produced after per-segment scores are accumulated across a gesture step and mapped into a final output score.
-
-The distinction matters:
-
-- `SEG` = raw feature/debug/training data for one detected segment
-- `DETECT` = final classified gesture result intended for the rest of the system
+I use `SEG` for debugging/training and `DETECT` as the final classification output.
 
 ---
 
-## Cumulative Step Scoring
+## Cumulative Scoring
 
-Instead of printing every segment as a final result, the firmware can accumulate evidence across an expected gesture window. At the end of the window, cumulative evidence is mapped into a final score.
+Instead of classifying every segment independently, I accumulate scores across a gesture window and only output a final detection after enough evidence is collected.
 
-This helps reduce noisy detections because one accidental segment does not automatically become a final classification. The firmware can require enough accumulated evidence before emitting a `DETECT` line.
-
-This design is especially useful when a gesture naturally breaks into multiple segments or contains repeated motion.
+This significantly reduces noise and false positives.
 
 ---
 
-## Central Hub Firmware
+## Central Hub
 
-The hub firmware coordinates the larger system. It uses another TM4C123 along with an ESP8266 communication path and UART output to the host PC.
+The hub is another TM4C system that:
 
-Responsibilities include:
-
-- receiving start/control messages
-- coordinating controller start timing
-- communicating with ESP8266 over UART5
-- forwarding detection information to the host computer
-- managing timing-sensitive output behavior
-- supporting DAC/audio-related timing infrastructure
-
-The hub acts as the bridge between embedded controller modules and the PC application.
+* synchronizes controller start timing
+* receives wireless data from controllers
+* forwards results over UART
+* manages timing-sensitive coordination
 
 ---
 
-## Host Display / Logger
+## Host Interface
 
-The Python host program reads serial data from the hub and displays runtime feedback. It uses:
+I wrote a Python interface using:
 
-- `pyserial` for UART communication
-- `tkinter` for the GUI
-- `opencv-python` and `Pillow` for visual display support
+* `pyserial` for communication
+* `tkinter` for UI
+* `opencv` / `Pillow` for visualization
 
-The host program is not the classifier. It is a visualization and logging layer built on top of the embedded detection pipeline.
+This layer is purely for monitoring—the embedded system performs all classification.
 
 ---
 
 ## Hardware
 
-The project uses:
+This system is built on:
 
-- TM4C123 microcontrollers
-- LSM6DSOX 6-axis IMU modules
-- ESP8266 wireless modules
-- DAC/audio circuitry on the hub side
-- custom/supporting KiCad hardware designs
-- UART links for module-to-module and module-to-PC communication
+* TM4C123 microcontrollers
+* LSM6DSOX IMUs
+* ESP8266 modules
+* DAC/audio hardware (hub side)
+* custom KiCad-designed boards
 
-The `hw/` directory contains KiCad project files, schematics, PCB layouts, footprints, symbols, and 3D models used during hardware design.
-
----
-
-## Building the Firmware
-
-This repository appears to be organized for embedded C development using TM4C/Tiva-style project files. The source folders include `.uvprojx`, `.ccsproject`, `.cproject`, startup files, linker command files, and TM4C register headers.
-
-Typical workflow:
-
-1. Open the relevant controller or hub project in the embedded IDE being used.
-2. Build the project for the TM4C123 target.
-3. Flash the firmware to the corresponding board.
-4. Connect UART/ESP wiring according to the hardware setup.
-5. Start the hub and controller modules.
-6. Read `DETECT` and `SEG` messages through the host serial path.
-
-Main firmware entry points:
-
-```text
-sw/sw_Player1_Controller/src/Lab1.c
-sw/sw_Player2_Controller/sw/src/Lab1.c
-sw/sw_Audio/sw/src_latest/Lab5.c
-```
+All hardware files are included in the `hw/` directory.
 
 ---
 
-## Running the Host Program
+## Why This Project Matters
 
-Install Python dependencies:
+This project combines:
 
-```bash
-pip install pyserial opencv-python pillow
-```
+* real-time embedded systems
+* IMU signal processing
+* motion segmentation
+* feature engineering
+* TinyML on constrained hardware
+* wireless embedded communication
 
-Then update the serial port in the host script if needed:
-
-```python
-SERIAL_PORT = 'COM11'
-BAUD_RATE = 115200
-```
-
-Run:
-
-```bash
-python sw/sw_Display/justdance.py
-```
-
-If using the display script without local media assets, remove or replace any references to large video files. Those files are intentionally not tracked in Git.
-
----
-
-## Git / Large File Notes
-
-Do not commit large media files to this repository. GitHub rejects normal Git files larger than 100 MB.
-
-Recommended `.gitignore` additions:
-
-```gitignore
-# Large media/demo assets
-*.mp4
-*.mov
-*.avi
-*.mkv
-
-# Python cache
-__pycache__/
-*.pyc
-
-# Keil / embedded build outputs
-Objects/
-Listings/
-*.axf
-*.elf
-*.hex
-*.map
-*.o
-*.d
-
-# Temporary files
-*.tmp
-~$*
-```
-
-If a large media file was committed accidentally, deleting it in a later commit is not enough. It must be removed from Git history before pushing.
-
----
-
-## Why This Project Is Interesting
-
-This project combines several embedded-systems problems into one system:
-
-- real-time sensor acquisition
-- noisy IMU signal processing
-- motion segmentation
-- feature engineering
-- fixed-point machine learning
-- bare-metal timing constraints
-- wireless embedded communication
-- multi-device synchronization
-- host visualization
-- custom hardware design
-
-The most technically important part is the embedded ML pipeline: the system turns raw accelerometer/gyroscope data into motion segments, compresses each segment into meaningful features, and runs compact classifiers directly on the microcontroller.
-
-That makes it a true TinyML-style embedded classification project rather than just a PC-side data demo.
+The most important aspect is that the entire ML pipeline runs **on-device**, making it a true embedded TinyML system rather than a PC-based demo.
 
 ---
 
 ## Future Improvements
 
-Potential next steps:
-
-- replace duplicated controller code with a shared controller firmware module
-- split gesture models into separate header/source files
-- add a formal training pipeline directory for dataset collection and model export
-- add unit tests for feature extraction and fixed-point inference
-- define a cleaner serial protocol document
-- add model accuracy notes and confusion matrices
-- add a minimal no-media host logger for easier GitHub demos
-- add diagrams for hardware wiring and data flow
-- add CI checks for formatting or static analysis
+* Modularize controller firmware
+* Formalize ML training/export pipeline
+* Add evaluation metrics (accuracy, confusion matrix)
+* Improve host visualization tools
+* Add hardware/system diagrams
 
 ---
 
 ## Status
 
-This repository represents an active embedded prototype with working firmware structure, controller-side gesture processing, TinyML inference code, wireless communication support, and host-side display/logging support. Some files still reflect development naming and classroom-lab origins, but the core system is best understood as a TinyML embedded gesture-classification platform.
+This is a working embedded system prototype with real-time gesture classification, multi-device coordination, and on-device ML inference. The core pipeline is fully implemented and functional on embedded hardware.
